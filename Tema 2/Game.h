@@ -22,7 +22,7 @@ public:
     ~Game();
     void GenerateTreasures();
     void RunRound(bool &a, bool &b, bool &c, bool &d);
-    void Afis() ;
+    void Afis() const;
     void Run(int numRounds);
 };
 

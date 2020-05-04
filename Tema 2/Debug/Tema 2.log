@@ -1,6 +1,4 @@
 ﻿  Game.cpp
-  Player.cpp
-  Player.h
   main.cpp
 D:\Theo\Info\Laboratoare fac\POO\Visual Studio\Tema 2\Tema 2\main.cpp(9,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...

@@ -84,7 +84,7 @@ void Game::RunRound(bool &a, bool &b, bool &c, bool &d)
     Afis();
 }
 
-void Game::Afis()
+void Game::Afis() const
 {
     cout << map_;
     /*cout << pa_.location() << pb_.location() << pc_.location() << pd_.location() << endl;
