@@ -1,5 +1,6 @@
 #include "Location.h"
 #include <iostream>
+
 using namespace std;
 
 ostream& operator<<(ostream& out, const Location loc)
@@ -17,3 +18,4 @@ bool operator!=(Location l1, Location l2)
 {
     return !(l1 == l2);
 }
+

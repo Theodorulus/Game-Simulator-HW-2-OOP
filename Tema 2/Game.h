@@ -1,10 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-
-
-
-
 #include <vector>
 #include "Player.h"
 
@@ -27,7 +23,7 @@ public:
     void GenerateTreasures();
     void RunRound(bool &a, bool &b, bool &c, bool &d);
     void Afis() ;
-    void Run();
+    void Run(int numRounds);
 };
 
 #endif /* GAME_H */

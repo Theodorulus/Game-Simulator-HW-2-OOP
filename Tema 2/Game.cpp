@@ -87,22 +87,24 @@ void Game::RunRound(bool &a, bool &b, bool &c, bool &d)
 void Game::Afis()
 {
     cout << map_;
-    //cout << pa_.location() << pb_.location() << pc_.location() << pd_.location() << endl;
+    /*cout << pa_.location() << pb_.location() << pc_.location() << pd_.location() << endl;
     if(treasures_.size())
         cout << "Comori ramase la locatiile: ";
     for (int i = 0; i < treasures_.size(); i++)
-        cout << treasures_[i];
+        cout << treasures_[i];*/
     cout << endl;
 }
 
-void Game::Run()
+void Game::Run(int numRounds=-1)
 {
     GenerateTreasures();
-    bool a = 0, b = 0, c = 0, d = 0;
-    Location loca = pa_.location(), locb = pb_.location(), locc = pc_.location(), locd = pd_.location();
+    cout << "Harta initiala: " << endl;
+    Afis();
+    bool a = 0, b = 0, c = 0, d = 0; // variabile care stabilesc daca playerii au gasit comoara sau nu pentru a sti daca se mai afla pe harta sau nu.
+    Location loca = pa_.location(), locb = pb_.location(), locc = pc_.location(), locd = pd_.location(); // variabile care vor ajuta sa numere cate runde la rand un player a stat nemiscat
     int nra = 0, nrb = 0, nrc = 0, nrd = 0;
-    while (treasures_.size() && (nra < 3 || nrb < 3 || nrc < 3 || nrd < 3))
-    {
+    while (treasures_.size() && (nra < 3 || nrb < 3 || nrc < 3 || nrd < 3) && (numRounds > 0 || numRounds == -1)) // daca au fost gasite toate comorile SAU daca niciun player dintre cei ramasi 
+    {                                                                                                             // pe harta nu s-a mai miscat de 3 runde SAU numarul de runde a fost limitat
         RunRound(a, b, c, d);
         if (!a)
             if (loca == pa_.location())
@@ -136,38 +138,13 @@ void Game::Run()
         locb = pb_.location();
         locc = pc_.location();
         locd = pd_.location();
+        if(numRounds != -1)
+            numRounds--;
     }
+    if (treasures_.size() && numRounds != 0)
+        cout << "Simularea a fost incheiata deoarece nu au fost gasite toate comorile.";
+    else
+        if(!treasures_.size())
+            cout << "Toate comorile au fost gasite.";
 }
-/*
-void Game::Run(int numRounds) {
-    for (int i = 0; i < numRounds; i++) {
-        bool hadMovement = false;
 
-        ++round_;
-        cout << "Round " << round_ << endl;
-
-        map_.Clear();
-
-        for (int j = 0; j < players_.size(); j++) {
-            Player* player = players_[j];
-            Location fromLocation = player->location();
-            player->Move(map_);
-            Location toLocation = player->location();
-
-            map_.MarkLocation(toLocation, '*');
-
-            if (fromLocation != toLocation) {
-                hadMovement = true;
-                cout << "Player" << j + 1 << " moved from " << fromLocation << " to " << toLocation << endl;
-            }
-        }
-
-        cout << "Map" << endl;
-        cout << map_;
-
-        if (!hadMovement) {
-            cout << "Nobody moved" << endl;
-            break;
-        }
-    }
-}*/
