@@ -7,8 +7,13 @@ Primul cautator care a gasit comoara va fi castigator si va parasi harta.  Jocul
 (toate casutele explorate) sau ramane doar un cautator pe harta fara nici o comoara.  
 Cerinte:
   •Crearea a 4 tipuri cautatori de comori pozitionati in colturile hartii;
+  
   •Crearea a 3 comori asezate aleatoriu pe harta dar niciodata in unul din cele 4 colturi;
+  
   •Crearea unei harti de cel putin 15 x 15;
+  
   •Crearea unei clase care sa gestioneze harta si desfasurarea unei runde;
+  
   •Creare  unei  modalitati de a alege simularea succesiva a rundelor sau oprirea simularii la stadiul curent, cu afisarea configuratiei hartii la sfarsitul unei runde simulate;
+  
   •Afisarea detaliilor despre ce modificari au avut loc asupra hartii;
